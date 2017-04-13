@@ -10,9 +10,9 @@
                  [conman "0.6.3"]
                  [cprop "0.1.10"]
                  [funcool/struct "1.0.0"]
+                 [luminus-jetty "0.1.4"]
                  [luminus-migrations "0.3.0"]
                  [luminus-nrepl "0.1.4"]
-                 [luminus/ring-ttl-session "0.3.1"]
                  [luminus/ring-ttl-session "0.3.2"]
                  [markdown-clj "0.9.98"]
                  [metosin/muuntaja "0.2.1"]
@@ -29,7 +29,6 @@
                  [ring-webjars "0.1.1"]
                  [ring/ring-core "1.6.0-RC2"]
                  [ring/ring-defaults "0.2.3"]
-                 [ring/ring-servlet "1.4.0"]
                  [selmer "1.10.7"]]
 
   :min-lein-version "2.0.0"
@@ -44,14 +43,7 @@
 
   :plugins [[lein-cprop "1.0.1"]
             [migratus-lein "0.4.4"]
-            [lein-cljsbuild "1.1.5"]
-            [lein-uberwar "0.2.0"]]
-  :uberwar
-  {:handler quickshare2.handler/app
-   :init quickshare2.handler/init
-   :destroy quickshare2.handler/destroy
-   :name "quickshare2.war"}
-  
+            [lein-cljsbuild "1.1.5"]]
   :clean-targets ^{:protect false}
   [:target-path [:cljsbuild :builds :app :compiler :output-dir] [:cljsbuild :builds :app :compiler :output-to]]
   :figwheel
@@ -88,11 +80,9 @@
    :project/dev  {:dependencies [[prone "1.1.4"]
                                  [ring/ring-mock "0.3.0"]
                                  [ring/ring-devel "1.5.1"]
-                                 [luminus-jetty "0.1.4"]
                                  [pjstadig/humane-test-output "0.8.1"]
                                  [binaryage/devtools "0.9.2"]
                                  [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
-                                 [directory-naming/naming-java "0.8"]
                                  [doo "0.1.7"]
                                  [figwheel-sidecar "0.5.9"]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.19.0"]

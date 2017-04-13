@@ -5,31 +5,11 @@
             [compojure.route :as route]
             [quickshare2.env :refer [defaults]]
             [mount.core :as mount]
-            [quickshare2.middleware :as middleware]
-            [clojure.tools.logging :as log]
-            [quickshare2.config :refer [env]]))
+            [quickshare2.middleware :as middleware]))
 
 (mount/defstate init-app
                 :start ((or (:init defaults) identity))
                 :stop  ((or (:stop defaults) identity)))
-
-(defn init
-  "init will be called once when
-   app is deployed as a servlet on
-   an app server such as Tomcat
-   put any initialization code here"
-  []
-  (doseq [component (:started (mount/start))]
-    (log/info component "started")))
-
-(defn destroy
-  "destroy will be called when your application
-   shuts down, put any clean up code here"
-  []
-  (doseq [component (:stopped (mount/stop))]
-    (log/info component "stopped"))
-  (shutdown-agents)
-  (log/info "quickshare2 has shut down!"))
 
 (def app-routes
   (routes
@@ -42,4 +22,4 @@
                      :title "page not found"})))))
 
 
-(def app (middleware/wrap-base #'app-routes))
+(defn app [] (middleware/wrap-base #'app-routes))
