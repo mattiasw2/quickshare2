@@ -10,9 +10,7 @@ and upload the .war file.
 
 If you want it on toplevel, rename it to ROOT.war
 
-If you keep the name, it will be installed at /quickshare2/
-
-See https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/java-tomcat-platform.html
+If you keep the name, it will be installed at /quickshare2/ and you need to put all .war in a .zip file, see below.
 
 ## or skip +war and get a .jar and select Java 8 at Beanstalk
 
