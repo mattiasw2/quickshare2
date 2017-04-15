@@ -35,3 +35,13 @@ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/java-se-platform.html
 https://github.com/weavejester/lein-beanstalk
 
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html
+
+## If we want several applications on the same site put them into a .zip
+
+call top-level ROOT.war
+
+http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/java-tomcat-multiple-war-files.html
+
+Tested by duplicating quickshare2.war and renaming to ROOT.war and zipping and uploading.
+
+Only problem: need to use same versions of imported .jars
