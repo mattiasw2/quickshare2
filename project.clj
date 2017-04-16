@@ -6,6 +6,7 @@
   :dependencies [[buddy "1.3.0"]
                  [ch.qos.logback/logback-classic "1.1.7"]
                  [cider/cider-nrepl "0.15.0-SNAPSHOT"]
+                 [cljs-ajax "0.5.9"]
                  [compojure "1.5.2"]
                  [conman "0.6.3"]
                  [cprop "0.1.10"]
@@ -26,9 +27,12 @@
                  [org.webjars.bower/tether "1.4.0"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
+                 [reagent "0.6.1"]
+                 [reagent-utils "0.2.1"]
                  [ring-webjars "0.1.1"]
                  [ring/ring-core "1.6.0-RC2"]
                  [ring/ring-defaults "0.2.3"]
+                 [secretary "1.2.3"]
                  [selmer "1.10.7"]]
 
   :min-lein-version "2.0.0"
@@ -66,7 +70,8 @@
                  :optimizations :advanced
                  :pretty-print false
                  :closure-warnings
-                 {:externs-validation :off :non-standard-jsdoc :off}}}}}
+                 {:externs-validation :off :non-standard-jsdoc :off}
+                 :externs ["react/externs/react.js"]}}}}
              
              
              :aot :all
