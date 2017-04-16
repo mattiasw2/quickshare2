@@ -25,7 +25,7 @@
                  [org.clojure/tools.cli "0.3.5"]
                  [org.clojure/tools.logging "0.3.1"]
                  [org.webjars.bower/tether "1.4.0"]
-                 [org.webjars/bootstrap "4.0.0-alpha.6"]
+                 [org.webjars/bootstrap "4.0.0-alpha.6-1"]
                  [org.webjars/font-awesome "4.7.0"]
                  [reagent "0.6.1"]
                  [reagent-utils "0.2.1"]
@@ -33,6 +33,7 @@
                  [ring/ring-core "1.6.0-RC2"]
                  [ring/ring-defaults "0.2.3"]
                  [secretary "1.2.3"]
+                 [org.clojure/core.match "0.3.0-alpha4"]
                  [selmer "1.10.7"]]
 
   :min-lein-version "2.0.0"
@@ -89,7 +90,10 @@
                                  [binaryage/devtools "0.9.3"]
                                  [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
                                  [doo "0.1.7"]
-                                 [figwheel-sidecar "0.5.10"]]
+                                 [figwheel-sidecar "0.5.10"]
+                                 ;; quickcheck
+                                 [com.gfredericks/test.chuck "0.2.7"]
+                                 [org.clojure/test.check "0.9.0"]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.19.0"]
                                  [lein-doo "0.1.7"]
                                  [lein-figwheel "0.5.10"]

@@ -15,6 +15,6 @@
        ;; (-> (response/ok (-> "docs/docs.md" io/resource slurp))
        ;;     (response/header "Content-Type" "text/plain; charset=utf-8"))
        )
-  (GET "/about" []
-       (layout/render "about.html"))
+  (GET "/about2" []
+       (layout/render "about2.html"))
   )
