@@ -11,6 +11,10 @@
   (GET "/" []
        (home-page))
   (GET "/docs" []
-       (-> (response/ok (-> "docs/docs.md" io/resource slurp))
-       (response/header "Content-Type" "text/plain; charset=utf-8"))))
-
+       (layout/render "docs.html" {:docs (-> "docs/docs.md" io/resource slurp)})
+       ;; (-> (response/ok (-> "docs/docs.md" io/resource slurp))
+       ;;     (response/header "Content-Type" "text/plain; charset=utf-8"))
+       )
+  (GET "/about" []
+       (layout/render "about.html"))
+  )
