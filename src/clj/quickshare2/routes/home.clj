@@ -2,10 +2,14 @@
   (:require [quickshare2.layout :as layout]
             [compojure.core :refer [defroutes GET]]
             [ring.util.http-response :as response]
+            quickshare2.db.core
             [clojure.java.io :as io]))
 
 (defn home-page []
   (layout/render "home.html"))
+
+(defn users-page []
+  (layout/render "users.html" {:users (quickshare2.db.core/get-users)}))
 
 (defroutes home-routes
   (GET "/" []
@@ -17,4 +21,6 @@
        )
   (GET "/about2" []
        (layout/render "about2.html"))
+  (GET "/users" []
+       (users-page))
   )
