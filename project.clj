@@ -11,7 +11,10 @@
                  [conman "0.6.3"]
                  [cprop "0.1.10"]
                  [funcool/struct "1.0.0"]
-                 [luminus-jetty "0.1.4"]
+
+                 ;; [luminus-jetty "0.1.4"]
+                 [luminus-immutant "0.2.3"]
+
                  [luminus-migrations "0.3.0"]
                  [luminus-nrepl "0.1.4"]
                  [luminus/ring-ttl-session "0.3.2"]
@@ -48,6 +51,7 @@
 
   :plugins [[lein-cprop "1.0.1"]
             [migratus-lein "0.4.4"]
+            [lein-immutant "2.1.0"]
             [lein-cljsbuild "1.1.5"]]
   :clean-targets ^{:protect false}
   [:target-path [:cljsbuild :builds :app :compiler :output-dir] [:cljsbuild :builds :app :compiler :output-to]]
