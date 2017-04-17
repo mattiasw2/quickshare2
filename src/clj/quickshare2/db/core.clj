@@ -1,16 +1,21 @@
 (ns quickshare2.db.core
   (:require
-    [clojure.java.jdbc :as jdbc]
-    [conman.core :as conman]
-    [quickshare2.config :refer [env]]
-    [mount.core :refer [defstate]])
+   [clojure.tools.logging :as log]
+   [clojure.java.jdbc :as jdbc]
+   [conman.core :as conman]
+   [quickshare2.config :refer [env]]
+   [mount.core :refer [defstate]])
   (:import [java.sql
             BatchUpdateException
             PreparedStatement]))
 
 (defstate ^:dynamic *db*
-           :start (conman/connect! {:jdbc-url (env :database-url)})
-           :stop (conman/disconnect! *db*))
+  :start
+  (try (conman/connect! {:jdbc-url (env :database-url)})
+       (catch Throwable e (do (println (str "Database connection failed " e))
+                              (log/error (str "Database connection failed " e)))))
+  :stop
+  (conman/disconnect! *db*))
 
 (conman/bind-connection *db* "sql/queries.sql")
 
@@ -28,4 +33,3 @@
   jdbc/ISQLParameter
   (set-parameter [v ^PreparedStatement stmt idx]
     (.setTimestamp stmt idx (java.sql.Timestamp. (.getTime v)))))
-
